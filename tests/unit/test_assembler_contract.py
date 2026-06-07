@@ -6,15 +6,15 @@ import pytest
 import xarray as xr
 
 import dmsp_ssm._internal.assembler.contracts as assembler_contracts
-from dmsp_ssm._internal.assembler import (
+from dmsp_ssm._internal.assembler.contracts import (
     ArtifactBundle,
     SupportsParseResultAssembler,
 )
-from dmsp_ssm._internal.pipeline import DecodedRecord
-from dmsp_ssm._internal.pipeline import FieldTrace
+from dmsp_ssm._internal.pipeline.decoded_record import DecodedRecord
+from dmsp_ssm._internal.pipeline.field_trace import FieldTrace
 from dmsp_ssm.parse_result import ParseResult
-from dmsp_ssm._internal.pipeline import RawRecord
-from dmsp_ssm._internal.validator import ValidationResult
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
+from dmsp_ssm._internal.validator.contracts import ValidationResult
 
 pytestmark = pytest.mark.unit
 

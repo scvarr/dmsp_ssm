@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from dmsp_ssm._internal.source import DataSource
+from dmsp_ssm._internal.source.data_source import DataSource
 
 pytestmark = pytest.mark.integration
 

@@ -1,11 +1,11 @@
 import pytest
 
-from dmsp_ssm._internal.validator import (
-    Validator,
+from dmsp_ssm._internal.validator.contracts import (
     ValidationResult,
     ValidationIncident,
-    ValidationErrorPolicy,
 )
+from dmsp_ssm._internal.validator.policy import ValidationErrorPolicy
+from dmsp_ssm._internal.validator.validator import Validator
 
 pytestmark = pytest.mark.unit
 

@@ -1,5 +1,1 @@
-from .decoder import Decoder
-
-__all__ = [
-    "Decoder",
-]
+"""Внутренний пакет декодирования записей."""

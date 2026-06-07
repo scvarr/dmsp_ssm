@@ -4,11 +4,11 @@ from typing import get_type_hints
 import pytest
 
 import dmsp_ssm._internal.builder.contracts as builder_contracts
-from dmsp_ssm._internal.builder import (
+from dmsp_ssm._internal.builder.contracts import (
     BuilderArtifact,
     SupportsDecodedRecordBuilder,
 )
-from dmsp_ssm._internal.pipeline import DecodedRecord
+from dmsp_ssm._internal.pipeline.decoded_record import DecodedRecord
 
 pytestmark = pytest.mark.unit
 

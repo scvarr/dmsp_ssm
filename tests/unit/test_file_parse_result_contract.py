@@ -2,9 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from dmsp_ssm._internal.orchestration import FileParseResult
-from dmsp_ssm._internal.source import SourceFile
-from dmsp_ssm._internal.pipeline import FieldTrace, RawRecord
+from dmsp_ssm._internal.orchestration.file_parse_result import FileParseResult
+from dmsp_ssm._internal.source.data_source import SourceFile
+from dmsp_ssm._internal.pipeline.field_trace import FieldTrace
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
 
 pytestmark = pytest.mark.unit
 

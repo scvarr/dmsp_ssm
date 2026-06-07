@@ -5,8 +5,8 @@ from pathlib import Path
 import pytest
 
 from dmsp_ssm.reader import Reader
-from dmsp_ssm._internal.pipeline import RawRecord
-from dmsp_ssm._internal.validator import Validator
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
+from dmsp_ssm._internal.validator.validator import Validator
 
 pytestmark = pytest.mark.unit
 

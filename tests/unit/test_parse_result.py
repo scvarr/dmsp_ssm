@@ -1,7 +1,7 @@
 import pytest
 
 from dmsp_ssm.parse_result import ParseResult
-from dmsp_ssm._internal.validator import ValidationResult
+from dmsp_ssm._internal.validator.contracts import ValidationResult
 
 pytestmark = pytest.mark.unit
 

@@ -6,12 +6,10 @@ import numpy as np
 import pytest
 import xarray as xr
 
-from dmsp_ssm._internal.assembler import ArtifactBundle
-from dmsp_ssm._internal.assembler import (
-    InMemoryParseResultAssembler,
-)
+from dmsp_ssm._internal.assembler.contracts import ArtifactBundle
+from dmsp_ssm._internal.assembler.in_memory import InMemoryParseResultAssembler
 from dmsp_ssm.parse_result import ParseResult
-from dmsp_ssm._internal.validator import ValidationResult
+from dmsp_ssm._internal.validator.contracts import ValidationResult
 
 pytestmark = pytest.mark.unit
 

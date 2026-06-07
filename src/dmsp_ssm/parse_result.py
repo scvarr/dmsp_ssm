@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import TypeAlias
 
-from ._internal.validator import ValidationResult
+from ._internal.validator.contracts import ValidationResult
 
 # Тип records зависит от выбранного output_profile и не привязан к internal-моделям.
 FacadeRecords: TypeAlias = object

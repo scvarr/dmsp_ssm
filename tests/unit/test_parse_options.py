@@ -1,7 +1,7 @@
 import pytest
 
 from dmsp_ssm.parse_options import ParseOptions
-from dmsp_ssm._internal.validator import ValidationErrorPolicy
+from dmsp_ssm._internal.validator.policy import ValidationErrorPolicy
 
 pytestmark = pytest.mark.unit
 

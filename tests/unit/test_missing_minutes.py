@@ -9,8 +9,8 @@ from dmsp_ssm._internal.orchestration.file_parse_result import FileParseResult
 from dmsp_ssm._internal.orchestration.missing_minutes import (
     inject_missing_minutes_summary,
 )
-from dmsp_ssm._internal.pipeline import RawRecord
-from dmsp_ssm._internal.source import SourceFile
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
+from dmsp_ssm._internal.source.data_source import SourceFile
 
 pytestmark = pytest.mark.unit
 

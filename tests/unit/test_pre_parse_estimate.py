@@ -8,7 +8,7 @@ from dmsp_ssm._internal.orchestration.pre_parse_estimate import (
     estimate_pre_parse_input,
     inject_pre_parse_estimate_into_report,
 )
-from dmsp_ssm._internal.source import SourceFile
+from dmsp_ssm._internal.source.data_source import SourceFile
 
 pytestmark = pytest.mark.unit
 
@@ -109,4 +109,3 @@ def test_inject_pre_parse_estimate_into_report_writes_into_object_summary_dict()
 
     assert report.summary["existing"] == "ok"
     assert report.summary["pre_parse_input_estimate"]["total_input_bytes"] == 1000
-

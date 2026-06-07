@@ -2,19 +2,17 @@ from pathlib import Path
 
 import pytest
 
-from dmsp_ssm._internal.orchestration import (
-    CollectionErrorPolicy,
-    FileParseResult,
-    build_raw_collection_result,
+from dmsp_ssm._internal.orchestration.collection_error_policy import CollectionErrorPolicy
+from dmsp_ssm._internal.orchestration.collection_result_builder import build_raw_collection_result
+from dmsp_ssm._internal.orchestration.file_parse_result import FileParseResult
+from dmsp_ssm._internal.orchestration.file_pipeline import (
     iter_file_parse_results,
     map_source_files_to_results,
 )
-from dmsp_ssm._internal.source import SourceFile
-from dmsp_ssm._internal.orchestration import (
-    RawCollectionResult,
-)
+from dmsp_ssm._internal.source.data_source import SourceFile
+from dmsp_ssm._internal.orchestration.raw_collection_result import RawCollectionResult
 from dmsp_ssm._internal.format.definition import FormatDefinition
-from dmsp_ssm._internal.pipeline import RawRecord
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
 
 pytestmark = pytest.mark.unit
 

@@ -12,10 +12,3 @@ class SupportsSourceFileRead(Protocol):
 
     def read_source_file(self, source_file: SourceFile) -> bytes:
         ...
-
-
-class SupportsSourceFilesAccess(SupportsSourceFileRead, Protocol):
-    """Контракт канонического доступа к файлам источника для фасадного разбора."""
-
-    def list_source_files(self) -> list[SourceFile]:
-        ...

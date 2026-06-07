@@ -1,7 +1,7 @@
 import pytest
 
-from dmsp_ssm._internal.pipeline import RecordParser
-from dmsp_ssm._internal.pipeline import RawRecord
+from dmsp_ssm._internal.pipeline.record_parser import RecordParser
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
 
 pytestmark = pytest.mark.unit
 

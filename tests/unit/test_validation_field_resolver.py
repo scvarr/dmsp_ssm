@@ -1,6 +1,6 @@
 import pytest
 
-from dmsp_ssm._internal.validator import ValidationFieldResolver
+from dmsp_ssm._internal.validator.field_resolver import ValidationFieldResolver
 
 pytestmark = pytest.mark.unit
 

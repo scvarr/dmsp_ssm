@@ -5,11 +5,14 @@ from pathlib import Path
 import pytest
 import xarray as xr
 
-from dmsp_ssm._internal.source import DataSource, SourceFile
+from dmsp_ssm._internal.source.data_source import (
+    DataSource,
+    SourceFile,
+)
 from dmsp_ssm.parse_result import ParseResult
-from dmsp_ssm._internal.pipeline import RawRecord
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
 from dmsp_ssm.reader import Reader
-from dmsp_ssm._internal.validator import Validator
+from dmsp_ssm._internal.validator.validator import Validator
 
 pytestmark = pytest.mark.unit
 

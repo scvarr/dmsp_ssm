@@ -1,3 +1,1 @@
-from .data_source import SourceFile, DataSource
-
-__all__ = ["SourceFile", "DataSource"]
+"""Внутренний пакет источников входных данных."""

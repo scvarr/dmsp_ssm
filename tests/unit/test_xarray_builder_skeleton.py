@@ -5,12 +5,12 @@ import pytest
 import xarray as xr
 
 import dmsp_ssm._internal.builder.xarray_builder as xarray_builder_module
-from dmsp_ssm._internal.builder import (
+from dmsp_ssm._internal.builder.xarray_builder import (
     XArrayBuilder,
     XArrayDimensionModel,
 )
 from dmsp_ssm._internal.format.definition import FormatDefinition
-from dmsp_ssm._internal.pipeline import DecodedRecord
+from dmsp_ssm._internal.pipeline.decoded_record import DecodedRecord
 
 pytestmark = pytest.mark.unit
 

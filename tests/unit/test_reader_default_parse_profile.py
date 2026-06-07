@@ -10,8 +10,8 @@ from pytest import MonkeyPatch
 from dmsp_ssm._internal.format.definition import FormatDefinition
 from dmsp_ssm.parse_options import ParseOptions
 from dmsp_ssm.reader import Reader
-from dmsp_ssm._internal.pipeline import RawRecord
-from dmsp_ssm._internal.validator import Validator
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
+from dmsp_ssm._internal.validator.validator import Validator
 
 pytestmark = pytest.mark.unit
 

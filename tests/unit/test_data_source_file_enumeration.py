@@ -3,7 +3,10 @@ from typing import cast
 
 import pytest
 
-from dmsp_ssm._internal.source import DataSource, SourceFile
+from dmsp_ssm._internal.source.data_source import (
+    DataSource,
+    SourceFile,
+)
 
 pytestmark = pytest.mark.unit
 

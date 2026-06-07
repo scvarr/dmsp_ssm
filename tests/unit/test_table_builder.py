@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import pytest
 
-from dmsp_ssm._internal.builder import TableBuilder
-from dmsp_ssm._internal.pipeline import DecodedRecord, FieldTrace
+from dmsp_ssm._internal.builder.table_builder import TableBuilder
+from dmsp_ssm._internal.pipeline.decoded_record import DecodedRecord
+from dmsp_ssm._internal.pipeline.field_trace import FieldTrace
 
 pytestmark = pytest.mark.unit
 

@@ -4,7 +4,7 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from dmsp_ssm._internal.pipeline import FieldTrace
+from dmsp_ssm._internal.pipeline.field_trace import FieldTrace
 
 pytestmark = pytest.mark.unit
 

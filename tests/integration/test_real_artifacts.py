@@ -6,11 +6,12 @@ from pathlib import Path
 import pytest
 import xarray as xr
 
-from dmsp_ssm._internal.source import DataSource
+from dmsp_ssm._internal.source.data_source import DataSource
 from dmsp_ssm.parse_options import ParseOptions
 from dmsp_ssm.parse_result import ParseResult
 from dmsp_ssm.reader import Reader
-from dmsp_ssm._internal.validator import ValidationErrorPolicy, ValidationResult
+from dmsp_ssm._internal.validator.contracts import ValidationResult
+from dmsp_ssm._internal.validator.policy import ValidationErrorPolicy
 
 pytestmark = pytest.mark.integration
 

@@ -3,11 +3,11 @@ from __future__ import annotations
 import pytest
 import xarray as xr
 
-from dmsp_ssm._internal.pipeline import DecodedRecord
-from dmsp_ssm._internal.builder import XArrayBuilder
+from dmsp_ssm._internal.pipeline.decoded_record import DecodedRecord
+from dmsp_ssm._internal.builder.xarray_builder import XArrayBuilder
 from dmsp_ssm.parse_result import ParseResult
-from dmsp_ssm._internal.pipeline import RawRecord
-from dmsp_ssm._internal.validator import ValidationResult
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
+from dmsp_ssm._internal.validator.contracts import ValidationResult
 
 pytestmark = pytest.mark.unit
 

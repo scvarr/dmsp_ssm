@@ -2,15 +2,17 @@ from __future__ import annotations
 
 import pytest
 
-from dmsp_ssm._internal.assembler import InMemoryParseResultAssembler
-from dmsp_ssm._internal.builder import NumpyBuilder, TableBuilder, XArrayBuilder
-from dmsp_ssm._internal.decoder import Decoder
-from dmsp_ssm._internal.pipeline import RecordParser
+from dmsp_ssm._internal.assembler.in_memory import InMemoryParseResultAssembler
+from dmsp_ssm._internal.builder.numpy_builder import NumpyBuilder
+from dmsp_ssm._internal.builder.table_builder import TableBuilder
+from dmsp_ssm._internal.builder.xarray_builder import XArrayBuilder
+from dmsp_ssm._internal.decoder.decoder import Decoder
+from dmsp_ssm._internal.pipeline.record_parser import RecordParser
 from dmsp_ssm._internal.runtime.reader_runtime import (
     ReaderRuntime,
     create_reader_runtime,
 )
-from dmsp_ssm._internal.validator import Validator
+from dmsp_ssm._internal.validator.validator import Validator
 
 pytestmark = pytest.mark.unit
 

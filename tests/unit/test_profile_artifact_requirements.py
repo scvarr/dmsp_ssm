@@ -3,7 +3,7 @@ import inspect
 import pytest
 
 import dmsp_ssm._internal.assembler.contracts as assembler_contracts
-from dmsp_ssm._internal.assembler import (
+from dmsp_ssm._internal.assembler.contracts import (
     ProfileArtifactRequirements,
     OUTPUT_PROFILE_ARTIFACT_REQUIREMENTS,
 )

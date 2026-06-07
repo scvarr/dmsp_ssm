@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import pytest
 
-from dmsp_ssm._internal.decoder import Decoder
+from dmsp_ssm._internal.decoder.decoder import Decoder
 from dmsp_ssm._internal.format.definition import FormatDefinition
-from dmsp_ssm._internal.pipeline import RawRecord
+from dmsp_ssm._internal.pipeline.raw_record import RawRecord
 
 pytestmark = pytest.mark.unit
 

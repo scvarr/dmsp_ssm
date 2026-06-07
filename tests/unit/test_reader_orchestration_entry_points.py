@@ -6,7 +6,7 @@ import dmsp_ssm.reader as reader_module
 from dmsp_ssm.parse_options import ParseOptions
 from dmsp_ssm.parse_result import ParseResult
 from dmsp_ssm.reader import Reader
-from dmsp_ssm._internal.validator import ValidationResult
+from dmsp_ssm._internal.validator.contracts import ValidationResult
 
 pytestmark = pytest.mark.unit
 

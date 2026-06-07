@@ -4,8 +4,8 @@ import numpy as np
 import pytest
 
 import dmsp_ssm._internal.builder.numpy_builder as numpy_builder_module
-from dmsp_ssm._internal.builder import NumpyBuilder
-from dmsp_ssm._internal.pipeline import DecodedRecord
+from dmsp_ssm._internal.builder.numpy_builder import NumpyBuilder
+from dmsp_ssm._internal.pipeline.decoded_record import DecodedRecord
 
 pytestmark = pytest.mark.unit
 

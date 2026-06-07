@@ -6,7 +6,7 @@ import pytest
 
 from dmsp_ssm._internal.format.definition import FormatDefinition
 from dmsp_ssm.reader import Reader
-from dmsp_ssm._internal.validator import Validator
+from dmsp_ssm._internal.validator.validator import Validator
 
 pytestmark = pytest.mark.unit
 
