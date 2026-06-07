@@ -14,4 +14,4 @@ from dmsp_ssm.parse_result import ParseResult
 from dmsp_ssm.reader import Reader
 
 __all__ = ["Reader", "ParseOptions", "ParseResult"]
-__version__ = "1.0.0"
+__version__ = "1.0.1"

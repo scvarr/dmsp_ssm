@@ -57,6 +57,7 @@ def test_ssm_format_definition_class_contains_required_keys() -> None:
     assert "record_size" in format_definition
     assert "byte_order" in format_definition
     assert "validation_fields" in format_definition
+    assert format_definition["validation_fields"] == ["year", "day_of_year"]
 
 
 def test_ssm_format_definition_as_dict_returns_independent_copy() -> None:

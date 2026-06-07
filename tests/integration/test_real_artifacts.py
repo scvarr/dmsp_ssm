@@ -74,6 +74,49 @@ def test_reader_parse_reads_real_file_through_default_data_source(
     assert set(result.records.data_vars) == FROZEN_DATA_VARS
 
 
+def test_reader_parse_reads_real_f12_legacy_flight_number_from_file_name(
+    tests_data_dir: Path,
+) -> None:
+    gz_path = tests_data_dir / "m1295001.dat.gz"
+    reader = Reader()
+
+    result = reader.parse(gz_path)
+
+    assert result.report.status == "ok"
+    assert result.records.sizes["record"] == 1343
+    assert set(result.records["flight_number"].values.tolist()) == {12}
+    assert result.records["flight_number"].dtype.kind in {"i", "u"}
+
+
+def test_reader_parse_reads_real_f14_legacy_flight_number_from_file_name(
+    tests_data_dir: Path,
+) -> None:
+    gz_path = tests_data_dir / "m1405121.dat.gz"
+    reader = Reader()
+
+    result = reader.parse(gz_path)
+
+    assert result.report.status == "ok"
+    assert result.records.sizes["record"] == 1369
+    assert set(result.records["flight_number"].values.tolist()) == {14}
+    assert result.records["flight_number"].dtype.kind in {"i", "u"}
+
+
+def test_reader_parse_numpy_keeps_integer_flight_number_dtype_for_legacy_file(
+    tests_data_dir: Path,
+) -> None:
+    gz_path = tests_data_dir / "m1405121.dat.gz"
+    reader = Reader()
+
+    result = reader.parse(
+        gz_path,
+        options=ParseOptions(output_profile="numpy"),
+    )
+
+    assert set(result.records["flight_number"].tolist()) == {14}
+    assert result.records["flight_number"].dtype.kind in {"i", "u"}
+
+
 def test_data_source_reads_real_corrupted_tail_artifact(tests_data_dir: Path) -> None:
     corrupted_path = tests_data_dir / "corrupted_incomplete_tail.dat"
 
@@ -114,7 +157,7 @@ def test_reader_parse_reports_corrupted_middle_artifact_in_strict_mode(
 
     assert isinstance(result, ParseResult)
     assert isinstance(result.records, xr.Dataset)
-    assert result.records.sizes["record"] == 720
+    assert result.records.sizes["record"] == 721
     assert set(result.records.data_vars) == FROZEN_DATA_VARS
 
     report = result.report
@@ -123,7 +166,7 @@ def test_reader_parse_reports_corrupted_middle_artifact_in_strict_mode(
     assert report.outcome == "fatal"
     assert report.summary["candidate_record_count"] == 1372
     assert report.summary["expected_record_count"] == 1440
-    assert report.summary["missing_record_count"] == 720
+    assert report.summary["missing_record_count"] == 719
     assert report.summary["has_missing_records"] is True
     assert report.validated_chunks == []
     assert len(report.incidents) == 1
@@ -217,7 +260,7 @@ def test_reader_parse_directory_aggregates_reports_for_valid_and_corrupted_files
 
     assert isinstance(result, ParseResult)
     assert isinstance(result.records, xr.Dataset)
-    assert result.records.sizes["record"] == 2160
+    assert result.records.sizes["record"] == 2161
     assert set(result.records.data_vars) == FROZEN_DATA_VARS
 
     report = result.report
@@ -227,9 +270,9 @@ def test_reader_parse_directory_aggregates_reports_for_valid_and_corrupted_files
     assert report.summary["file_count"] == 2
     assert report.summary["file_error_count"] == 1
     assert report.summary["candidate_record_count"] == 2812
-    assert report.summary["validated_record_count"] == 2160
+    assert report.summary["validated_record_count"] == 2161
     assert report.summary["expected_record_count"] == 2880
-    assert report.summary["missing_record_count"] == 720
+    assert report.summary["missing_record_count"] == 719
     assert report.summary["has_missing_records"] is True
     ranges_by_file = report.summary["missing_minute_ranges_by_file"]
     assert ranges_by_file[0] == {
@@ -246,16 +289,16 @@ def test_reader_parse_directory_aggregates_reports_for_valid_and_corrupted_files
     corrupted_file_summary = ranges_by_file[1]
     assert corrupted_file_summary["source_file"] == "b_corrupted.dat"
     assert corrupted_file_summary["expected_record_count"] == 1440
-    assert corrupted_file_summary["observed_record_count"] == 720
-    assert corrupted_file_summary["missing_record_count"] == 720
+    assert corrupted_file_summary["observed_record_count"] == 721
+    assert corrupted_file_summary["missing_record_count"] == 719
     assert corrupted_file_summary["has_missing_records"] is True
     assert corrupted_file_summary["first_minute_index"] == 0
-    assert corrupted_file_summary["last_minute_index"] == 739
+    assert corrupted_file_summary["last_minute_index"] == 740
     assert corrupted_file_summary["gap_count"] == 20
     assert sum(
         missing_range["count"]
         for missing_range in corrupted_file_summary["missing_minute_ranges"]
-    ) == 720
+    ) == 719
     assert report.validated_chunks == []
     assert len(report.incidents) == 1
     assert report.incidents[0].kind == "invalid_record"

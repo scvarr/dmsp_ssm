@@ -7,7 +7,7 @@ pytestmark = pytest.mark.unit
 
 
 def test_package_exposes_version() -> None:
-    assert __version__ == "1.0.0"
+    assert __version__ == "1.0.1"
 
 
 def test_package_exposes_parse_options() -> None:

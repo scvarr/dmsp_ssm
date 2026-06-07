@@ -50,13 +50,11 @@ def assert_context(
     offset: int,
     year: int,
     day_of_year: int = 100,
-    flight_number: int = 10,
 ) -> None:
     assert context is not None
     assert context["offset"] == offset
     assert context["validation_fields"]["year"] == year
     assert context["validation_fields"]["day_of_year"] == day_of_year
-    assert context["validation_fields"]["flight_number"] == flight_number
 
 
 def test_ssm_validator_accepts_raw_bytes(ssm_format_definition: dict) -> None:
@@ -170,7 +168,7 @@ def test_ssm_validator_accepts_valid_record_by_required_fields_from_format_defin
     assert result.incidents == []
 
 
-@pytest.mark.parametrize("field_name", ["year", "day_of_year", "flight_number"])
+@pytest.mark.parametrize("field_name", ["year", "day_of_year"])
 def test_ssm_validator_validates_required_fields_as_raw_values_without_transform(
     ssm_format_definition: dict,
     field_name: str,
@@ -487,8 +485,12 @@ def test_ssm_validator_resync_does_not_confirm_boundary_by_single_valid_record(
 def test_ssm_validator_estimates_missing_records_for_invalid_record_with_neighbors(
     ssm_format_definition: dict,
 ) -> None:
+    format_definition = {
+        **ssm_format_definition,
+        "validation_fields": ["year", "day_of_year", "flight_number"],
+    }
     validator = Validator(
-        format_definition=ssm_format_definition,
+        format_definition=format_definition,
         error_policy=ValidationErrorPolicy.RESYNC,
     )
 
@@ -517,8 +519,12 @@ def test_ssm_validator_estimates_missing_records_for_invalid_record_with_neighbo
 def test_ssm_validator_estimates_missing_records_for_desync_with_neighbors(
     ssm_format_definition: dict,
 ) -> None:
+    format_definition = {
+        **ssm_format_definition,
+        "validation_fields": ["year", "day_of_year", "flight_number"],
+    }
     validator = Validator(
-        format_definition=ssm_format_definition,
+        format_definition=format_definition,
         error_policy=ValidationErrorPolicy.RESYNC,
     )
 
@@ -552,8 +558,12 @@ def test_ssm_validator_estimates_missing_records_for_desync_with_neighbors(
 def test_ssm_validator_does_not_estimate_missing_records_for_cross_year_neighbors(
     ssm_format_definition: dict,
 ) -> None:
+    format_definition = {
+        **ssm_format_definition,
+        "validation_fields": ["year", "day_of_year", "flight_number"],
+    }
     validator = Validator(
-        format_definition=ssm_format_definition,
+        format_definition=format_definition,
         error_policy=ValidationErrorPolicy.RESYNC,
     )
 

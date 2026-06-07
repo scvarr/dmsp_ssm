@@ -16,7 +16,6 @@ class FormatDefinition:
         "validation_fields": [
             "year",
             "day_of_year",
-            "flight_number",
         ],
         "header": [
             {
